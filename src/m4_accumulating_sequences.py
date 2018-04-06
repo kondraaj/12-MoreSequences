@@ -101,6 +101,19 @@ def run_test_make_simple_string():
     print('Testing the   make_simple_string   function:')
     print('--------------------------------------------------')
 
+    # Test 1:
+    expected = ('5-6-7-8-9-')
+    actual = make_simple_string(5, 9)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+    # Test 2:
+    expected = ('11-12-13-14-15-16-17-18-19-20-21-22-23-24-')
+    actual = make_simple_string(11, 24)
+    print('Expected:', expected)
+    print('Actual:  ', actual)
+
+
 
 def make_simple_string(m, n):
     """
@@ -122,6 +135,11 @@ def make_simple_string(m, n):
       :type m: int
       :type n: int
     """
+    string = str()
+    for k in range(n - m + 1):
+        string = string + str(m + k, '-')
+    return string
+
     # ------------------------------------------------------------------
     # TODO: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
