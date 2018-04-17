@@ -102,17 +102,16 @@ def run_test_make_simple_string():
     print('--------------------------------------------------')
 
     # Test 1:
-    expected = ('5-6-7-8-9-')
+    expected = '5-6-7-8-9-'
     actual = make_simple_string(5, 9)
     print('Expected:', expected)
     print('Actual:  ', actual)
 
     # Test 2:
-    expected = ('11-12-13-14-15-16-17-18-19-20-21-22-23-24-')
+    expected = '11-12-13-14-15-16-17-18-19-20-21-22-23-24-'
     actual = make_simple_string(11, 24)
     print('Expected:', expected)
     print('Actual:  ', actual)
-
 
 
 def make_simple_string(m, n):
@@ -162,13 +161,13 @@ def run_test_make_less_simple_string():
     print('--------------------------------------------------')
 
     # Test 1:
-    expected = ('7-8-9-10-11-12-13-14-15')
+    expected = '7-8-9-10-11-12-13-14-15'
     actual = make_less_simple_string(7, 15)
     print('Expected:', expected)
     print('Actual:  ', actual)
 
     # Test 2:
-    expected = ('96-97-98-99-100-101')
+    expected = '96-97-98-99-100-101'
     actual = make_less_simple_string(96, 101)
     print('Expected:', expected)
     print('Actual:  ', actual)
@@ -399,8 +398,17 @@ def rectangles_from_circles(circles):
       :type circles:  list | tuple of rg.Circle
       :rtype: list of rg.Rectangles
     """
+    rectlist = []
+    for k in range(len(circles)):
+        center = circles[k].center
+        radius = circles[k].radius
+        rect1 = rg.Point(center.x - radius, center.y - radius)
+        rect2 = rg.Point(center.x + radius, center.y + radius)
+        rect = rg.Rectangle(rect1, rect2)
+        rectlist = rectlist + [rect]
+    return rectlist
     # ------------------------------------------------------------------
-    # TODO: 10. Implement and test this function.
+    # DONE: 10. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
